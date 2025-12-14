@@ -31,7 +31,7 @@ export default function UserForm({ initialData, mode, section }: UserFormProps) 
         address2: "",
         city: "",
         postcode: "",
-        postcode: "",
+
         state: "Sabah",
         creditLimit: 0,
         discountRate: 0,
