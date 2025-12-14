@@ -50,7 +50,7 @@ export default function UserForm({ initialData, mode, section }: UserFormProps) 
 
     useEffect(() => {
         if (initialData) {
-            setFormData(prev => ({ ...prev, ...initialData }));
+            setFormData((prev: any) => ({ ...prev, ...initialData }));
         }
     }, [initialData]);
 
