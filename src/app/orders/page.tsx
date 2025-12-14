@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, DragEvent } from "react";
+import { useState, useEffect, DragEvent, Suspense } from "react";
 import { Search, Filter, MoreVertical, Plus, Truck, CheckCircle, Clock, AlertCircle, X, ChevronRight, Calculator, FileText, Printer, MoreHorizontal, ArrowRight, Settings, LayoutGrid, List as ListIcon, ChevronDown, ChevronUp, Calendar, AlertTriangle, Smartphone, Trash2, Megaphone, Wallet, CreditCard, Upload, Link as LinkIcon, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -80,7 +80,7 @@ const DEFAULT_COLUMNS: WorkflowColumn[] = [
     { id: "col-8", title: "Issue / On Hold", color: "bg-red-600", subtitle: "Production Issues" },
 ];
 
-export default function AdminOrdersPage() {
+function OrdersContent() {
     const router = useRouter();
     const [orders, setOrders] = useState<Order[]>([]);
     const [columns, setColumns] = useState<WorkflowColumn[]>(DEFAULT_COLUMNS);
@@ -1118,5 +1118,13 @@ function OrderModal({ order, onClose, onDelete, onUpdate, columns, agents }: { o
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function AdminOrdersPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading orders...</div>}>
+            <OrdersContent />
+        </Suspense>
     );
 }
