@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, DragEvent } from "react";
-import { Search, Filter, MoreVertical, Plus, Truck, CheckCircle, Clock, AlertCircle, X, ChevronRight, Calculator, FileText, Printer, MoreHorizontal, ArrowRight, Settings, LayoutGrid, List as ListIcon, ChevronDown, ChevronUp, Calendar, AlertTriangle, Smartphone, Trash2, Megaphone, Wallet, CreditCard, Upload, Link as LinkIcon } from "lucide-react";
+import { Search, Filter, MoreVertical, Plus, Truck, CheckCircle, Clock, AlertCircle, X, ChevronRight, Calculator, FileText, Printer, MoreHorizontal, ArrowRight, Settings, LayoutGrid, List as ListIcon, ChevronDown, ChevronUp, Calendar, AlertTriangle, Smartphone, Trash2, Megaphone, Wallet, CreditCard, Upload, Link as LinkIcon, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -683,7 +683,7 @@ function OrderCard({ order, onDragStart, isHighlighted, onClick, onDoubleClick, 
                         {order.customer ? (
                             <span className="text-[9px] font-bold text-slate-500">{order.customer.charAt(0)}</span>
                         ) : (
-                            <Users size={12} className="text-slate-400" />
+                            <User size={12} className="text-slate-400" />
                         )}
                     </div>
                     <span className="text-xs font-medium text-slate-400">
